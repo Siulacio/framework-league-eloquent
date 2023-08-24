@@ -7,7 +7,7 @@ use Aura\Session\SessionFactory;
 class Session
 {
     protected $session;
-    protected $segment;
+    protected $segment = 'Blog';
 
     public function __construct()
     {
