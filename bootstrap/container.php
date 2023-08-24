@@ -13,5 +13,7 @@ $container->share('request', function () {
    );
 });
 
-Kint::dump($container->get('request'));
+$container->addServiceProvider(new \Application\Providers\SessionServiceProvider);
+
+Kint::dump($container->get(\Application\Services\Session::class));
 
