@@ -15,4 +15,12 @@
     @endif
 
     <p>{{appName()}}</p>
+
+    <h2 class="text-center text-muted">Listado de Posts</h2>
+
+    @forelse($user->posts as $post)
+        <p>Título: {{$post->title}}, Body: {{$post->body}}</p>
+    @empty
+        <div class="alert alert-danger">No hay posts para este usuario</div>
+    @endforelse
 @endsection
