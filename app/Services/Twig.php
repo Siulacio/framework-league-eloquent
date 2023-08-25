@@ -4,7 +4,7 @@ namespace Application\Services;
 
 use Psr\Http\Message\ResponseInterface;
 
-class View
+class Twig
 {
     protected $view;
     protected $response;
