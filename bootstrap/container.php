@@ -22,6 +22,7 @@ $container->share('request', function () {
 $container->addServiceProvider(new \Application\Providers\SessionServiceProvider);
 $container->addServiceProvider(new \Application\Providers\ViewServiceProvider);
 $container->addServiceProvider(new \Application\Providers\ControllerServiceProvider);
+$container->addServiceProvider(new \Application\Providers\DatabaseServiceProvider);
 
 $container->share(Auth::class)->withArgument($container->get(Session::class));
 

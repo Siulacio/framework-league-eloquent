@@ -20,7 +20,7 @@ class Auth
         if (!$this->session->get('user')) {
             return $response
                 ->withStatus(302)
-                ->withHeader('Location', '/login');
+                ->withHeader('Location', '/');
         }
 
         return $next($request, $response);
