@@ -3,6 +3,7 @@
 namespace Application\Providers;
 
 use Application\Controllers\HomeController;
+use Application\Controllers\ProfileController;
 use Application\Services\View;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use Psr\Container\ContainerExceptionInterface;
@@ -11,7 +12,8 @@ use Psr\Container\NotFoundExceptionInterface;
 class ControllerServiceProvider extends AbstractServiceProvider
 {
     protected $provides = [
-      HomeController::class
+        HomeController::class,
+        ProfileController::class,
     ];
 
     /**
@@ -21,6 +23,9 @@ class ControllerServiceProvider extends AbstractServiceProvider
     public function register()
     {
         $this->getContainer()->add(HomeController::class)->withArguments([
+            $this->getContainer()->get(View::class)
+        ]);
+        $this->getContainer()->add(ProfileController::class)->withArguments([
             $this->getContainer()->get(View::class)
         ]);
     }
