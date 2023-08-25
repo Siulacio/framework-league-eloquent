@@ -4,6 +4,7 @@ namespace Application\Providers;
 
 use Application\Controllers\HomeController;
 use Application\Controllers\ProfileController;
+use Application\Services\Blade;
 use Application\Services\Twig;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use Psr\Container\ContainerExceptionInterface;
@@ -23,7 +24,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
     public function register()
     {
         $this->getContainer()->add(HomeController::class)->withArguments([
-            $this->getContainer()->get(Twig::class)
+            $this->getContainer()->get(Blade::class)
         ]);
         $this->getContainer()->add(ProfileController::class)->withArguments([
             $this->getContainer()->get(Twig::class)
