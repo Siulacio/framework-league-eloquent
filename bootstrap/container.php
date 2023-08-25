@@ -14,6 +14,6 @@ $container->share('request', function () {
 });
 
 $container->addServiceProvider(new \Application\Providers\SessionServiceProvider);
+$container->addServiceProvider(new \Application\Providers\ViewServiceProvider);
 
-Kint::dump($container->get(\Application\Services\Session::class));
-
+$route = require base_path('routes/web.php');
