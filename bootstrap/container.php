@@ -1,5 +1,8 @@
 <?php
 
+use Application\Middlewares\Auth;
+use Application\Services\Session;
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -19,6 +22,8 @@ $container->share('request', function () {
 $container->addServiceProvider(new \Application\Providers\SessionServiceProvider);
 $container->addServiceProvider(new \Application\Providers\ViewServiceProvider);
 $container->addServiceProvider(new \Application\Providers\ControllerServiceProvider);
+
+$container->share(Auth::class)->withArgument($container->get(Session::class));
 
 $route = require base_path('routes/web.php');
 
