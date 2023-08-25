@@ -14,3 +14,9 @@ if (! function_exists('config')) {
         return $config->get($section, $key);
     }
 }
+
+if (! function_exists('appName')) {
+    function appName() {
+        return 'Nombre de nuestra aplicación';
+    }
+}

@@ -17,4 +17,9 @@ class User extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function getNameAndEmailAttribute()
+    {
+        return sprintf('Nombre: %s, Email: %s', $this->name, $this->email);
+    }
 }

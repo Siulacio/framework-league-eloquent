@@ -15,7 +15,7 @@ class HomeController extends BaseController
 
     public function index($request, $response)
     {
-        $user = 'Siulacio';
+        $user = User::find(1);
         return $this->view->render('home', compact('user'));
     }
 
