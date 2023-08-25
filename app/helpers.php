@@ -6,3 +6,11 @@ if (!function_exists('base_path')) {
         return __DIR__ . '/..//' . ($path ? DIRECTORY_SEPARATOR . $path : $path);
     }
 }
+
+if (! function_exists('config')) {
+    function config(string $section, string $key): ?string
+    {
+        $config = \Application\Services\Config::instance();
+        return $config->get($section, $key);
+    }
+}
