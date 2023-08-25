@@ -2,13 +2,13 @@
 
 namespace Application\Controllers;
 
+use Application\Interfaces\ViewInterface;
 use Application\Models\User;
-use Application\Services\Twig;
 
 class HomeController extends BaseController
 {
 
-    public function __construct(Twig $view)
+    public function __construct(ViewInterface $view)
     {
         parent::__construct($view);
     }

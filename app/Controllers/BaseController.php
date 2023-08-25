@@ -2,13 +2,13 @@
 
 namespace Application\Controllers;
 
-use Application\Services\Twig;
+use Application\Interfaces\ViewInterface;
 
 class BaseController
 {
     protected $view;
 
-    public function __construct(Twig $view)
+    public function __construct(ViewInterface $view)
     {
         $this->view = $view;
     }

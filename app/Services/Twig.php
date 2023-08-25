@@ -2,9 +2,10 @@
 
 namespace Application\Services;
 
+use Application\Interfaces\ViewInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class Twig
+class Twig implements ViewInterface
 {
     protected $view;
     protected $response;
