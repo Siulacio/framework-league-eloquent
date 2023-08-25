@@ -5,16 +5,14 @@ namespace Application\Services;
 use Application\Interfaces\ViewInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class Twig implements ViewInterface
+class Blade implements ViewInterface
 {
     protected $view;
     protected $response;
 
     public function __construct(ResponseInterface $response)
     {
-        $loader = new \Twig_Loader_Filesystem(base_path('app/Views'));
-        $view = new \Twig_Environment($loader);
-        $this->view = $view;
+        $this->view = new \Jenssegers\Blade\Blade(base_path('app/Views'), base_path('app/Cache/Views'));
         $this->response = $response;
     }
 
@@ -22,8 +20,7 @@ class Twig implements ViewInterface
     {
         $this->response
             ->getBody()
-            ->write($this->view->render($view . '.twig', $data));
+            ->write($this->view->render($view, $data));
         return $this->response;
     }
-
 }
